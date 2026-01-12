@@ -1,15 +1,243 @@
-/* --- Стилі для Модального вікна --- */
+/* --- Загальні налаштування --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Плавна прокрутка до якірів */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1d; /* Темний фон */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Шапка --- */
+header {
+    background-color: #2b2b2b;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4caf50; /* Зелений Minecraft */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #4caf50;
+}
+
+/* --- Головний екран (Hero) --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1607936854279-55e8a4c64888?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #cccccc;
+}
+
+/* --- Секція переваг --- */
+.features {
+    padding: 60px 0;
+    background-color: #222;
+    text-align: center;
+}
+
+.features h2 { margin-bottom: 40px; color: #4caf50; }
+
+.features-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+}
+
+.feature-item h3 { margin-bottom: 10px; font-size: 22px; }
+
+/* --- Кнопки --- */
+.btn {
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 35px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #4caf50;
+    color: #4caf50;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: #4caf50;
+    color: white;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* --- Тарифи --- */
+.pricing {
+    padding: 80px 0;
+}
+
+.pricing h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #2b2b2b;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    border: 1px solid #444;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card.featured {
+    border: 2px solid #4caf50;
+    transform: scale(1.05);
+}
+
+.card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.price {
+    font-size: 32px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: white;
+}
+
+.price span {
+    font-size: 16px;
+    color: #888;
+    font-weight: normal;
+}
+
+.card ul {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.card ul li::before {
+    content: "✓"; 
+    color: #4caf50;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* --- Модальне вікно --- */
 .modal {
-    display: none; /* Приховано за замовчуванням */
+    display: none; 
     position: fixed; 
-    z-index: 2000; /* Щоб було поверх усього */
+    z-index: 2000; 
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
-    background-color: rgba(0,0,0,0.8); /* Чорний напівпрозорий фон */
+    background-color: rgba(0,0,0,0.8);
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
 }
 
 .modal-content {
@@ -21,16 +249,14 @@
     max-width: 400px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    animation: fadeIn 0.4s;
+    animation: slideDown 0.4s;
 }
 
-/* Анімація появи */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
+@keyframes slideDown {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
 }
 
-/* Кнопка закриття (хрестик) */
 .close {
     color: #aaa;
     position: absolute;
@@ -41,33 +267,50 @@
     cursor: pointer;
 }
 
-.close:hover {
-    color: white;
-}
+.close:hover { color: white; }
 
-/* Стилі форми всередині модалки */
 .modal-content label {
     display: block;
     margin: 15px 0 5px;
     text-align: left;
+    color: #ddd;
 }
 
 .modal-content input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 12px;
+    margin-bottom: 25px;
     border: 1px solid #555;
     border-radius: 5px;
     background-color: #1a1a1d;
     color: white;
+    outline: none;
+}
+
+.modal-content input:focus {
+    border-color: #4caf50;
 }
 
 .modal-content h2 {
     margin-bottom: 20px;
     color: #4caf50;
+    text-align: center;
 }
 
-/* Плавна прокрутка для всього сайту */
-html {
-    scroll-behavior: smooth;
+/* --- Футер --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #111;
+    color: #666;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}
+
+/* --- Адаптивність (Мобільні) --- */
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; gap: 15px; }
+    .hero h1 { font-size: 32px; }
+    .card.featured { transform: scale(1); }
+    .card.featured:hover { transform: translateY(-10px); }
 }
