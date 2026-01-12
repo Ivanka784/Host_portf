@@ -1,53 +1,230 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Отримуємо елементи
-    const modal = document.getElementById("orderModal");
-    const closeBtn = document.querySelector(".close");
-    const buyBtns = document.querySelectorAll(".buy-btn");
-    const modalTitle = document.getElementById("modalTitle");
-    const orderForm = document.getElementById("orderForm");
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    // Функція відкриття вікна
-    const openModal = (planName) => {
-        modalTitle.innerText = `Замовлення: ${planName}`;
-        modal.classList.add("show"); // Додаємо клас для анімації
-    };
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
 
-    // Функція закриття вікна
-    const closeModal = () => {
-        modal.classList.remove("show");
-    };
+.container {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-    // 1. Навішуємо події на кнопки "Замовити"
-    buyBtns.forEach(btn => {
-        btn.addEventListener("click", function() {
-            const planName = this.getAttribute("data-plan");
-            openModal(planName);
-        });
-    });
+.highlight {
+    color: #4CAF50; /* Minecraft Green */
+}
 
-    // 2. Закриття на хрестик
-    closeBtn.addEventListener("click", closeModal);
+/* Навігація */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #1a1a1a;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
 
-    // 3. Закриття при кліку поза вікном
-    window.addEventListener("click", function(event) {
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-    // 4. Обробка форми
-    orderForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Не перезавантажуємо сторінку
-        
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-        // Тут мала б бути відправка даних на сервер
-        console.log(`Замовлення: ${modalTitle.innerText}, Нік: ${username}, Email: ${email}`);
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-        alert(`Дякуємо, ${username}! Менеджер зв'яжеться з вами за адресою ${email}.`);
-        
-        orderForm.reset();
-        closeModal();
-    });
-});
+.nav-links a:hover {
+    color: #4CAF50;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1607988795622-44743c7b332d?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* Кнопки */
+.btn {
+    padding: 12px 30px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 2px solid #4CAF50;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #4CAF50;
+}
+
+.btn-outline {
+    padding: 12px 30px;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+/* Секція Переваги */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+/* Секція Тарифи */
+.pricing-section {
+    background: #181818;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-card {
+    background: #222;
+    padding: 40px;
+    border-radius: 15px;
+    width: 300px;
+    position: relative;
+    border: 1px solid #333;
+    transition: transform 0.3s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: #4CAF50;
+}
+
+.pricing-card.popular {
+    border: 2px solid #4CAF50;
+    background: #2a2a2a;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: #4CAF50;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #888;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.pricing-card ul li {
+    margin-bottom: 10px;
+}
+
+.pricing-card ul li::before {
+    content: "✓";
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+/* Футер */
+footer {
+    background: #0f0f0f;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    margin-top: auto;
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Спрощено для прикладу */
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
