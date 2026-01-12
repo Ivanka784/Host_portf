@@ -3,118 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MineHost - Хостинг твоєї мрії</title>
+    <title>MineHost - Найкращий Minecraft Хостинг</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="container header-content">
-            <div class="logo">MineHost</div>
-            <nav>
-                <a href="#features">Переваги</a>
-                <a href="#pricing">Тарифи</a>
-                <a href="#support">Підтримка</a>
-            </nav>
+    <nav>
+        <div class="logo">Mine<span class="highlight">Host</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Головна</a></li>
+            <li><a href="#features">Переваги</a></li>
+            <li><a href="#pricing">Тарифи</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Твій сервер Minecraft за <span class="highlight">секунди</span></h1>
+            <p>Потужне залізо, захист від DDoS та низький пінг. Ідеально для Survival та Anarchy.</p>
+            <a href="#pricing" class="btn">Обрати тариф</a>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Створи свій сервер Minecraft вже сьогодні</h1>
-            <p>Високий FPS, захист від DDoS та миттєве встановлення.</p>
-            <a href="#pricing" class="btn">Обрати тариф</a>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Чому ми?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <h3>🚀 Швидкість</h3>
-                    <p>Найсучасніші процесори для гри без лагів.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>🛡️ Захист</h3>
-                    <p>Професійний захист від будь-яких атак.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>⚙️ Зручність</h3>
-                    <p>Зручна панель керування сервером.</p>
-                </div>
+    <section id="features" class="container">
+        <h2>Чому обирають нас?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🚀 NVMe SSD</h3>
+                <p>Блискавична швидкість завантаження чанків завдяки новітнім дискам.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🛡️ DDoS Захист</h3>
+                <p>Ваш сервер буде працювати навіть під час потужних атак.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚙️ Зручна панель</h3>
+                <p>Керуйте плагінами, модами та консоллю в один клік.</p>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Наші Тарифи</h2>
-            <div class="pricing-grid">
-                
-                <div class="card">
-                    <h3>Початківець</h3>
-                    <div class="price">100 грн<span>/міс</span></div>
-                    <ul>
-                        <li>2 GB RAM</li>
-                        <li>10 Гравців</li>
-                        <li>SSD Диск</li>
-                        <li>Базова підтримка</li>
-                    </ul>
-                    <button class="btn-outline buy-btn" data-plan="Початківець">Замовити</button>
-                </div>
-
-                <div class="card featured">
-                    <h3>Професіонал</h3>
-                    <div class="price">250 грн<span>/міс</span></div>
-                    <ul>
-                        <li>8 GB RAM</li>
-                        <li>50 Гравців</li>
-                        <li>NVMe SSD</li>
-                        <li>Пріоритетна підтримка</li>
-                    </ul>
-                    <button class="btn buy-btn" data-plan="Професіонал">Замовити</button>
-                </div>
-
-                <div class="card">
-                    <h3>Екстрім</h3>
-                    <div class="price">500 грн<span>/міс</span></div>
-                    <ul>
-                        <li>16 GB RAM</li>
-                        <li>Безліміт гравців</li>
-                        <li>Виділений IP</li>
-                        <li>24/7 Підтримка</li>
-                    </ul>
-                    <button class="btn-outline buy-btn" data-plan="Екстрім">Замовити</button>
-                </div>
-
+    <section id="pricing" class="pricing-section">
+        <h2>Наші Тарифи</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Start</h3>
+                <div class="price">150 ₴<span>/міс</span></div>
+                <ul>
+                    <li>2 GB RAM</li>
+                    <li>1 Ядро CPU</li>
+                    <li>NVMe Диск</li>
+                    <li>Слотів: Необмежено</li>
+                </ul>
+                <a href="#" class="btn-outline">Замовити</a>
+            </div>
+            <div class="pricing-card popular">
+                <div class="badge">ТОП</div>
+                <h3>Standard</h3>
+                <div class="price">300 ₴<span>/міс</span></div>
+                <ul>
+                    <li>4 GB RAM</li>
+                    <li>2 Ядра CPU</li>
+                    <li>NVMe Диск</li>
+                    <li>Пріоритетна підтримка</li>
+                </ul>
+                <a href="#" class="btn">Замовити</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Pro</h3>
+                <div class="price">600 ₴<span>/міс</span></div>
+                <ul>
+                    <li>8 GB RAM</li>
+                    <li>4 Ядра CPU</li>
+                    <li>Виділена IP</li>
+                    <li>Моди та Плагіни</li>
+                </ul>
+                <a href="#" class="btn-outline">Замовити</a>
             </div>
         </div>
     </section>
 
-    <footer id="support">
-        <div class="container">
-            <p>&copy; 2024 MineHost. Створено для портфоліо.</p>
-        </div>
+    <footer>
+        <p>&copy; 2024 MineHost. Цей сайт є частиною портфоліо.</p>
     </footer>
 
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalTitle">Оформлення замовлення</h2>
-            <form id="orderForm">
-                <label for="username">Нікнейм в Minecraft:</label>
-                <input type="text" id="username" placeholder="Ваш нік..." required>
-                
-                <label for="email">Ваш Email:</label>
-                <input type="email" id="email" placeholder="mail@example.com" required>
-                
-                <button type="submit" class="btn full-width">Підтвердити</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
