@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MineHost - Найкращий хостинг для Minecraft</title>
+    <title>MineHost - Хостинг твоєї мрії</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -22,9 +22,29 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Твій власний сервер Minecraft за 5 хвилин</h1>
-            <p>Потужне залізо, захист від DDoS та низький пінг.</p>
+            <h1>Створи свій сервер Minecraft вже сьогодні</h1>
+            <p>Високий FPS, захист від DDoS та миттєве встановлення.</p>
             <a href="#pricing" class="btn">Обрати тариф</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Чому ми?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>🚀 Швидкість</h3>
+                    <p>Найсучасніші процесори для гри без лагів.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🛡️ Захист</h3>
+                    <p>Професійний захист від будь-яких атак.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>⚙️ Зручність</h3>
+                    <p>Зручна панель керування сервером.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -42,7 +62,7 @@
                         <li>SSD Диск</li>
                         <li>Базова підтримка</li>
                     </ul>
-                    <button class="btn-outline">Замовити</button>
+                    <button class="btn-outline buy-btn" data-plan="Початківець">Замовити</button>
                 </div>
 
                 <div class="card featured">
@@ -54,7 +74,7 @@
                         <li>NVMe SSD</li>
                         <li>Пріоритетна підтримка</li>
                     </ul>
-                    <button class="btn">Замовити</button>
+                    <button class="btn buy-btn" data-plan="Професіонал">Замовити</button>
                 </div>
 
                 <div class="card">
@@ -66,18 +86,35 @@
                         <li>Виділений IP</li>
                         <li>24/7 Підтримка</li>
                     </ul>
-                    <button class="btn-outline">Замовити</button>
+                    <button class="btn-outline buy-btn" data-plan="Екстрім">Замовити</button>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer id="support">
         <div class="container">
-            <p>&copy; 2024 MineHost. Проект для портфоліо.</p>
+            <p>&copy; 2024 MineHost. Створено для портфоліо.</p>
         </div>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Оформлення замовлення</h2>
+            <form id="orderForm">
+                <label for="username">Нікнейм в Minecraft:</label>
+                <input type="text" id="username" placeholder="Ваш нік..." required>
+                
+                <label for="email">Ваш Email:</label>
+                <input type="email" id="email" placeholder="mail@example.com" required>
+                
+                <button type="submit" class="btn full-width">Підтвердити</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
